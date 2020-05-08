@@ -11,23 +11,20 @@
   <script src="https://kit.fontawesome.com/80316aad00.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script>
-    $(document).ready(function() {
-      <!-- When the signin button is clicked -->
-      $("btn-signin").click(function () {
-        <!-- Make post signin petition to backend  -->
-        $.post("http://localhost:8080/Backend/access/signUp/", function (data, status) {
-          json_string: JSON.stringify({username: $("#inputUsername").val(), password: $("#inputPassword").val()});
-          if (status == 201) {
-            window.location.href = "./krunalspage.html";
-            alert(status);
-          } else {
-            alert("Wrong password or username!")
-            document.getElementById("inputPassword").placeholder = "Enter password";
-            document.getElementById("inputUsername").placeholder = "Enter username";
-          }
-        });
+    function signin() {
+      $.post("http://localhost:8080/swagger3/access/signIn/", function (data, status) {
+        json_string: JSON.stringify({username: $("#inputUsername").val(), password: $("#inputPassword").val()});
+        if (status == 201) {
+          window.location.href = "./krunalspage.html";
+          alert(status);
+        } else {
+          alert("Wrong password or username!")
+          document.getElementById("inputPassword").placeholder = "Enter password";
+          document.getElementById("inputUsername").placeholder = "Enter username";
+        }
       });
-    });
+    }
+
   </script>
 </head>
 <body>
@@ -47,7 +44,7 @@
             <i class="fa fa-lock" aria-hidden="true"></i>
             <input type="password" id= inputPassword class="form-control" placeholder="Enter Password">
           </div>
-          <button class="btn" type="submit" id="btn-signin"><i class="fas fa-sign-in-alt"></i> Sign In </button>
+          <button onclick="signin()"><i class="fas fa-sign-in-alt"></i> Sign In </button>
         </form>
         <div class="col-12 signup">
           <a href="./krunalspage.html">Don't have an account?</a>
