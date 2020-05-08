@@ -14,7 +14,7 @@
       <!-- When the search button is clicked -->
       $("btn-signup").click(function () {
         <!-- Get from GitHub Api a User Repository Data  -->
-        $.get("http://localhost:8080/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function (data, status) {
+        $.get("/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function (data, status) {
           if (status == 201) {
             $('#success').show();
           } else {
@@ -24,7 +24,7 @@
       });
       $("btn-signup").click(function () {
         <!-- Get from GitHub Api a User Repository Data  -->
-        $.get("http://localhost:8080/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function (data, status) {
+        $.get("/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function (data, status) {
           if (status == 201) {
             $('#success').show();
           } else {
