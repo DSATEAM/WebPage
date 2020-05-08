@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Transparent Login Form with Bootstrap 4</title>
+  <meta charset="UTF-8">
+  <title>Last Survivor</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -11,24 +12,18 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script>
     $(document).ready(function() {
-      <!-- When the search button is clicked -->
-      $("btn-signup").click(function () {
-        <!-- Get from GitHub Api a User Repository Data  -->
-        $.get("/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function (data, status) {
+      <!-- When the signin button is clicked -->
+      $("btn-signin").click(function () {
+        <!-- Make post signin petition to backend  -->
+        $.post("http://localhost:8080/Backend/access/signUp/", function (data, status) {
+          json_string: JSON.stringify({username: $("#inputUsername").val(), password: $("#inputPassword").val()});
           if (status == 201) {
-            $('#success').show();
+            window.location.href = "./krunalspage.html";
+            alert(status);
           } else {
-            $('#warning').show();
-          }
-        });
-      });
-      $("btn-signup").click(function () {
-        <!-- Get from GitHub Api a User Repository Data  -->
-        $.get("/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function (data, status) {
-          if (status == 201) {
-            $('#success').show();
-          } else {
-            $('#warning').show();
+            alert("Wrong password or username!")
+            document.getElementById("inputPassword").placeholder = "Enter password";
+            document.getElementById("inputUsername").placeholder = "Enter username";
           }
         });
       });
@@ -40,7 +35,7 @@
     <div class="col-sm-8 main-section">
       <div class ="modal-content">
         <div class="col-12 user-img">
-          <img src ="img/warrior.jpg">
+          <img src ="./img/warrior.jpg">
         </div>
 
         <form class="col-12">
@@ -52,24 +47,15 @@
             <i class="fa fa-lock" aria-hidden="true"></i>
             <input type="password" id= inputPassword class="form-control" placeholder="Enter Password">
           </div>
-          <button class="btn" type="button" id="btn-signin"><i class="fas fa-sign-in-alt"></i> Sign In </button>
+          <button class="btn" type="submit" id="btn-signin"><i class="fas fa-sign-in-alt"></i> Sign In </button>
         </form>
         <div class="col-12 signup">
-          <a href="#">Don't have an account?</a>
+          <a href="./krunalspage.html">Don't have an account?</a>
         </div>
 
       </div> <!-- This is the end of Modal Content -->
     </div>
   </div>
-
-
- 
-
-
-
-
-
-
 
 </body>
 </html>
