@@ -7,33 +7,32 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <script src="https://kit.fontawesome.com/80316aad00.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
       <!-- When the search button is clicked -->
-      $("btn-signup").click(function(){
+      $("btn-signup").click(function () {
         <!-- Get from GitHub Api a User Repository Data  -->
-        $.get( "http://localhost:8080/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function(data, status){
-          if (status==201) {
+        $.get("http://localhost:8080/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function (data, status) {
+          if (status == 201) {
             $('#success').show();
-          }
-          else{
+          } else {
             $('#warning').show();
           }
         });
       });
-      $("btn-signup").click(function(){
+      $("btn-signup").click(function () {
         <!-- Get from GitHub Api a User Repository Data  -->
-        $.get( "http://localhost:8080/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function(data, status){
-          if (status==201) {
+        $.get("http://localhost:8080/Backend/access/signUp/" + $("#inputUsername").val() + "/" + $("#inputPassword").val(), function (data, status) {
+          if (status == 201) {
             $('#success').show();
-          }
-          else{
+          } else {
             $('#warning').show();
           }
         });
       });
+    });
   </script>
 </head>
 <body>
@@ -46,9 +45,11 @@
 
         <form class="col-12">
           <div class="form-group">
-            <input type="text" id= inputUsername class="form-control" placeholder="Enter Username">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" id= inputUsername class="form-control"  placeholder="Enter Username">
           </div>
           <div class="form-group">
+            <i class="fa fa-lock" aria-hidden="true"></i>
             <input type="password" id= inputPassword class="form-control" placeholder="Enter Password">
           </div>
           <button class="btn" type="button" id="btn-signin"><i class="fas fa-sign-in-alt"></i> Sign In </button>

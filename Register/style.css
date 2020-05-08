@@ -30,11 +30,30 @@ body{
 .form-group{
     margin-bottom: 25px;
 }
+
+.form-group::before{
+
+}
 .form-group input{
     height: 42px;
     border-radius: 5px;
     border: 0;
     font-size: 18px;
+    padding-left: 54px;
+}
+.fa-user{
+    position: absolute;
+    left: 28px;
+    font-size: 22px;
+    padding-top: 10px;
+    color: slategray;
+}
+.fa-lock{
+    position: absolute;
+    left: 28px;
+    font-size: 22px;
+    padding-top: 10px;
+    color: slategray;
 }
 button{
     width: 40%;
